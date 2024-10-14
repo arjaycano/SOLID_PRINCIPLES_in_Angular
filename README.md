@@ -91,3 +91,22 @@ To fix the violation, we can modify the Ostrich class to behave more like Animal
 In this updated implementation, we have added a fly() method to the Ostrich class that throws an error because ostriches cannot fly. This ensures that Ostrich behaves like Animal and can be used as a substitute for it without affecting the correctness of the program.
 
 The Liskov Substitution Principle is an important principle in software engineering that helps us design maintainable and extensible systems. Violating the LSP can lead to unexpected behavior and bugs, but these violations can be fixed by ensuring that subclasses behave like their superclasses.
+
+4. Interface Segregation Principle (ISP)
+is a software development principle that states that a software component should not be forced to depend on interfaces that it does not use. In other words, clients should not be forced to depend on methods they do not use. This principle helps to reduce coupling between components and makes code more modular, flexible, and maintainable. ISP can be violated when a component has a dependency on a service that provides more methods than the component needs. This can lead to unnecessary coupling between the component and the service, making it difficult to modify either component without affecting the other. Additionally, it can cause performance issues as the component may be forced to load unnecessary methods from the service. To demonstrate this, let’s consider an example where a component needs to retrieve data from a service. The service provides several methods, including ones that are not required by the component.
+
+![14](https://github.com/user-attachments/assets/38a0c192-fbd3-4002-ae6c-edf094e376de)
+
+The component only needs to retrieve items from the service, so it should only depend on the getItems method. However, if the component is written as follows:
+
+![15](https://github.com/user-attachments/assets/0c067fc8-aab5-4a05-8eb2-4a2782e1bf0f)
+
+The component is depending on the DataService interface, which includes methods that are not used by the component. This can lead to unnecessary coupling and performance issues.
+
+To fix this, we can create a new interface that only includes the getItems method and have the service implement this interface. The component can then depend on this new interface instead of the original DataService interface.
+
+![16](https://github.com/user-attachments/assets/40568025-414f-4942-8b35-3952000af57a)
+
+Now, the component only depends on the ItemsService interface, which includes only the getItems method. This helps to reduce coupling and improves performance.
+
+The Interface Segregation Principle (ISP) is an important software development principle that helps to reduce coupling between components and makes code more modular, flexible, and maintainable. Violating ISP can lead to unnecessary coupling and performance issues. To fix this, we can create new interfaces that include only the methods needed by a component and have services implement these interfaces instead of larger interfaces. This can help to improve code quality, reduce coupling, and improve performance.
