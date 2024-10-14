@@ -148,3 +148,9 @@ Each principle in SOLID (Single Responsibility, Open-Closed, Liskov Substitution
 By following these principles, software developers can create software systems that are easier to test, debug, and refactor. They can also avoid common design problems, such as tight coupling, code duplication, and the creation of complex and hard-to-understand code.
 
 Overall, SOLID principles are an important part of modern software development. While they may require more time and effort to implement initially, they can save significant time and resources in the long run, leading to better code quality and a more successful software project.
+
+## REFERENCE:
+https://sheldonrcohen.medium.com/applying-solid-principles-to-angular-with-examples-fec460ffa541
+
+## GITHUB REPOSITORY:
+https://github.com/arjaycano/SOLID_PRINCIPLES_in_Angular
