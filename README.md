@@ -110,3 +110,41 @@ To fix this, we can create a new interface that only includes the getItems metho
 Now, the component only depends on the ItemsService interface, which includes only the getItems method. This helps to reduce coupling and improves performance.
 
 The Interface Segregation Principle (ISP) is an important software development principle that helps to reduce coupling between components and makes code more modular, flexible, and maintainable. Violating ISP can lead to unnecessary coupling and performance issues. To fix this, we can create new interfaces that include only the methods needed by a component and have services implement these interfaces instead of larger interfaces. This can help to improve code quality, reduce coupling, and improve performance.
+
+5. Dependency Inversion Principle (DIP)
+is an important principle of object-oriented design. It suggests that high-level modules should not depend on low-level modules, but both should depend on abstractions. The abstractions should not depend on the details, but the details should depend on the abstractions. This principle promotes loose coupling and high cohesion in software systems.
+
+### Violation of DIP:
+Let’s consider an example where we have a CustomService that depends on a CustomerRepository to fetch customer data. The implementation of CustomerService looks like this:
+
+![17](https://github.com/user-attachments/assets/52cfdfc1-ce5e-4520-9c97-a1df17be46ab)
+
+The implementation of CustomerRepository looks like this:
+
+![18](https://github.com/user-attachments/assets/e06c4765-17d7-4311-a05f-1095fd79f7c3)
+
+The CustomerService class depends on the CustomerRepository class, which violates the Dependency Inversion Principle. The CustomerService class is a high-level module, and the CustomerRepository class is a low-level module. The CustomerService class should not depend on the CustomerRepository class directly.
+
+### Fixing Violation of DIP:
+To fix the violation of the Dependency Inversion Principle, we need to introduce an abstraction between the CustomerService class and the CustomerRepository class. We can introduce an interface ICustomerRepository to define the contract that the CustomerRepository class should implement. The implementation of CustomerService looks like this:
+
+![19](https://github.com/user-attachments/assets/381b630d-7895-49d8-9ff0-a097a58a934c)
+
+The implementation of ICustomerRepository looks like this:
+
+![20](https://github.com/user-attachments/assets/0cca1f84-e219-4095-a6e2-a201ad2dbd32)
+
+The implementation of CustomerRepository now implements the ICustomerRepository interface.
+
+![21](https://github.com/user-attachments/assets/f9f5df63-20fc-49b2-bec8-e7e7a3e35eeb)
+
+Now, the CustomerService class depends on the ICustomerRepository interface, and the CustomerRepository class implements the ICustomerRepository interface. This way, the CustomerService class is decoupled from the CustomerRepository class, and both depend on the abstraction.
+
+## Conclusion:
+SOLID principles help software developers design software systems to be more flexible, maintainable, and scalable. They promote code that is easy to understand, modify, and extend.
+
+Each principle in SOLID (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion) has its own benefits and addresses specific concerns that can arise in software development. When combined, they form a powerful framework for designing high-quality software.
+
+By following these principles, software developers can create software systems that are easier to test, debug, and refactor. They can also avoid common design problems, such as tight coupling, code duplication, and the creation of complex and hard-to-understand code.
+
+Overall, SOLID principles are an important part of modern software development. While they may require more time and effort to implement initially, they can save significant time and resources in the long run, leading to better code quality and a more successful software project.
