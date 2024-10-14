@@ -3,8 +3,8 @@
 ## SOLID Principles:
 Are a set of guidelines for writing clean, maintainable, and reusable code.
 
-1. S - Single Responsibility Principle (SRP):
-Is a fundamental principle of software engineering which states that a class or module should have only one reason to change. In other words, it should have only one responsibility. Violating this principle can lead to code that is difficult to maintain and understand.
+1. S - Single Responsibility Principle (SRP)
+is a fundamental principle of software engineering which states that a class or module should have only one reason to change. In other words, it should have only one responsibility. Violating this principle can lead to code that is difficult to maintain and understand.
 
 ### Violation of SRP:
 Consider a component that displays a list of products and allows the user to filter them by category. Here’s an example of what the code might look like:
@@ -41,8 +41,8 @@ In addition to complying with the SRP, this refactoring also follows the Separat
 
 Adhering to the SRP is crucial for writing maintainable, extensible, and reusable code. By keeping each module’s responsibilities separated, we can avoid coupling and ensure that any changes to one module do not affect others unnecessarily.
 
-2. Open/Closed Principle (OCP):
-States that software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. In other words, we should be able to add new functionality without modifying existing code. This principle helps in reducing code coupling, improving code scalability, and making the code more reusable. OCP can be applied using inheritance and interfaces. For example, we can create a base component or service that contains common functionality and then create child components or services that inherit from the base component or service. We can also create interfaces for components or services that define a set of methods or properties that must be implemented.
+2. Open/Closed Principle (OCP)
+states that software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. In other words, we should be able to add new functionality without modifying existing code. This principle helps in reducing code coupling, improving code scalability, and making the code more reusable. OCP can be applied using inheritance and interfaces. For example, we can create a base component or service that contains common functionality and then create child components or services that inherit from the base component or service. We can also create interfaces for components or services that define a set of methods or properties that must be implemented.
 
 ### Violating the Open/Closed Principle:
 Consider, we have a component that displays a list of users. The users are retrieved and displayed in a table. The table has three columns: name, email, and phone number. We have created a UserListComponent to display this list. Initially, the component looks like this:
@@ -74,3 +74,20 @@ In the UserListComponent, we can now use the UserDetailComponent to display the 
 ![11 1](https://github.com/user-attachments/assets/01dbd17d-ea9a-4150-b7f3-2be1c61897e2)
 
 In this new implementation, the UserListComponent is responsible for displaying the list of users, while the UserDetailComponent is responsible for displaying the details of each user. The UserListComponent doesn’t need to be modified to add new functionality because the UserDetailComponent can be easily extended to display additional details.
+
+3. Liskov Substitution Principle (LSP)
+is a fundamental concept in software engineering that is essential for designing and implementing maintainable and extensible systems. LSP states that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program. Violating the LSP can lead to unexpected behavior and bugs.
+
+### Violating LSP:
+
+![12](https://github.com/user-attachments/assets/743655a9-8cee-4b25-bdb6-1cea8e154921)
+
+In this example, Ostrich is a subclass of Animal that overrides the move() method to reflect the fact that ostriches cannot fly. However, when we pass an instance of Ostrich to the moveAnimal() function, we get unexpected behavior because the move() method of Ostrich does not behave the same way as the move() method of Animal. This violates the LSP because Ostrich is not a true substitute for Animal.
+
+To fix the violation, we can modify the Ostrich class to behave more like Animal:
+
+![13](https://github.com/user-attachments/assets/e09a5724-1e7c-4148-9ab9-39879f7ff222)
+
+In this updated implementation, we have added a fly() method to the Ostrich class that throws an error because ostriches cannot fly. This ensures that Ostrich behaves like Animal and can be used as a substitute for it without affecting the correctness of the program.
+
+The Liskov Substitution Principle is an important principle in software engineering that helps us design maintainable and extensible systems. Violating the LSP can lead to unexpected behavior and bugs, but these violations can be fixed by ensuring that subclasses behave like their superclasses.
